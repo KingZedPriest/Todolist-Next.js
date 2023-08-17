@@ -1,6 +1,13 @@
 import Link from "next/link";
+import { prisma } from "./db";
 
-export default function Home() {
+function getTodos() {
+  return prisma.todo.findMany();
+}
+
+export default async function Home() {
+
+  const todos = await getTodos()
   return (
     <div className="mt-20 max-w-[30rem] border-2 border-slate-100 mx-auto rounded-2xl py-2 px-2 sm:px-4 lg:px-8">
       <header className="flex justify-between items-center mb-4">
@@ -12,6 +19,11 @@ export default function Home() {
           New
         </Link>
       </header>
+      <ul className="pl-4">
+        {todos.map(todo => 
+          <li key={todo.id}>{todo.title}</li>
+          )}
+      </ul>
     </div>
   );
 }
