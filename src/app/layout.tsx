@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} container mx-auto mt-20 max-w-[30rem] rounded-2xl border-2 border-slate-100 bg-slate-800 px-4 py-4 text-slate-100 lg:px-10`}
+        className={`${inter.className} container mx-auto mt-20 w-[20rem sm:w-[40rem] rounded-2xl border-2 border-slate-100 bg-slate-800 px-4 py-4 text-slate-100 lg:px-10`}
       >
         {children}
       </body>
